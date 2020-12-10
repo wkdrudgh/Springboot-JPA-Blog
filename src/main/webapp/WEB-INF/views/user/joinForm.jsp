@@ -3,20 +3,22 @@
 <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-	<form action="/action_page.php">
+	<form action="/user/join" >
 		<div class="form-group">
 			<label for="username">username</label> <input type="text" class="form-control" placeholder="Enter username" id="username">
 		</div>
 
 		<div class="form-group">
-			<label for="password">password</label> <input type="email" class="form-control" placeholder="Enter password" id="password">
+			<label for="password">password</label> <input type="password" class="form-control" placeholder="Enter password" id="password">
 		</div>
 
 		<div class="form-group">
-			<label for="email">email</label> <input type="password" class="form-control" placeholder="Enter Email" id="email">
+			<label for="email">email</label> <input type="email" class="form-control" placeholder="Enter Email" id="email">
 		</div>
 
-		<button type="submit" class="btn btn-primary">회원가입</button>
 	</form>
+		<button id="btn-save" class="btn btn-primary">회원가입</button>
 </div>
+
+<script src="/blog/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>

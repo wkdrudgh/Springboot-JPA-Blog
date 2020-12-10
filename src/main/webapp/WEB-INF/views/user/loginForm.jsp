@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="password">password</label> <input type="email" class="form-control" placeholder="Enter password" id="password">
+			<label for="password">password</label> <input type="password" class="form-control" placeholder="Enter password" id="password">
 		</div>
 
 		<div class="form-group form-check">
