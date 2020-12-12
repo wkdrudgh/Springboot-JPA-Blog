@@ -16,7 +16,7 @@ spring:
     password: cos1234
     
   jpa:
-    open-in-view: true
+    open-in-view: true # Lazy Loding을 사용할 수 있음(true)
     hibernate:
       ddl-auto: update # 서버 실행 시 테이블을 어떻게 할지 정하는 것 (create는 다시 만든다는 뜻)
       naming:
