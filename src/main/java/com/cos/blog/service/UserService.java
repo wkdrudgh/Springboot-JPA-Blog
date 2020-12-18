@@ -24,5 +24,17 @@ public class UserService {
 		user.setPassword(encoder.encode(user.getPassword())); // 1234를 해쉬로 변환해서 user에 set 함.
 		user.setRole(RoleType.USER);
 		repository.save(user);
-	}		
+	}	
+	
+	@Transactional
+	public void 회원수정(User user) {
+		User persistance = repository.findById(user.getId())
+				.orElseThrow(()->{
+					return new IllegalArgumentException("회원정보 수정 실패"); 
+				});
+		String rawPassword = encoder.encode(user.getPassword());
+				
+		persistance.setPassword(rawPassword);
+		persistance.setEmail(user.getEmail());
+	}
 }
