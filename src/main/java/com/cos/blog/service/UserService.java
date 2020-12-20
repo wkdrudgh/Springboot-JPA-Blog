@@ -19,6 +19,14 @@ public class UserService {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 	
+	@Transactional(readOnly = true)
+	public User 회원찾기(String username) {
+		User user = repository.findByUsername(username).orElseGet(()->{
+			return new User();
+		});		
+		return user;
+	}
+	
 	@Transactional // 에러 발생시 자동으로 롤백을 해줌.
 	public void 회원가입(User user) {
 		user.setPassword(encoder.encode(user.getPassword())); // 1234를 해쉬로 변환해서 user에 set 함.
@@ -30,11 +38,17 @@ public class UserService {
 	public void 회원수정(User user) {
 		User persistance = repository.findById(user.getId())
 				.orElseThrow(()->{
-					return new IllegalArgumentException("회원정보 수정 실패"); 
+					return new IllegalArgumentException("회원찾기 실패"); 
 				});
-		String rawPassword = encoder.encode(user.getPassword());
-				
-		persistance.setPassword(rawPassword);
-		persistance.setEmail(user.getEmail());
+		
+		// Validate 체크 => oauth 필드에 값이 없으면 수정 가능
+		if(persistance.getOauth() == null || persistance.getOauth() == "") {
+			String rawPassword = user.getPassword();
+			String encPassword =  encoder.encode(rawPassword);
+			persistance.setPassword(rawPassword);
+			persistance.setEmail(user.getEmail());
+		}
+								
 	}
+	
 }
