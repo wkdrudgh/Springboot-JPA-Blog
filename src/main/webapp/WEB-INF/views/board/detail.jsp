@@ -14,9 +14,9 @@
 		<div>
 			글번호 : <span id="id"><i>${board.id}</i></span>
 			작성자 : <span><i>${board.user.username}</i></span>
-		<div>
+		</div>
 		<br/>
-		
+		<div>
 			<h3>${board.title}</h3>
 		</div>		
 		<hr/>
@@ -25,6 +25,24 @@
 		  <div>${board.content}</div>
 		</div>		
 		<hr/>
+		
+		<div class="card">
+			<div class="card-body"><textarea class="form-control" rows="1"></textarea></div>
+			<div class="card-footer"><button class="btn btn-primary">등록</button></div>
+		</div>
+		<br/>
+		<div class="card">
+			<div class="card-header">댓글 리스트</div>
+			<ul id="comment-items" class="list-group">
+			  <li class="list-group-item d-flex justify-content-between">
+			  	<div>댓글 내용입니다.</div>
+			  	<div class="d-flex">
+			  		<div class="font-italic">작성자 : 장경호 &nbsp;</div>
+			  		<button class="badge">삭제</button>
+			  	</div>
+			  </li>
+			</ul>
+		</div>
 	
 </div>
 
