@@ -16,7 +16,7 @@ public class BoardService {
 	@Autowired
 	private BoardRepository boardrepository;
 	
-	@Transactional(readOnly = true) 
+	@Transactional
 	public void 글쓰기(Board board, User user) { // title, content
 		board.setCount(0);
 		board.setUser(user);
