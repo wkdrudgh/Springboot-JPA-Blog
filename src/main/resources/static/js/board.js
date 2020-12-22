@@ -77,7 +77,7 @@ let index = {
 			boardId: $("#boardId").val(),
 			content: $("#reply-content").val()		
 		};	 	
-		console.log(data);
+
 		$.ajax({
 			type: "POST",
 			url: `/api/board/${data.boardId}/reply`,
