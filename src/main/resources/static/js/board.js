@@ -73,19 +73,20 @@ let index = {
 	
 	replySave: function(){
 		let data = {
-			content: $("#reply-content").val()
+			userId: $("#userId").val(),
+			boardId: $("#boardId").val(),
+			content: $("#reply-content").val()		
 		};	 	
-		let boardId = $("#boardId").val();
-		
+		console.log(data);
 		$.ajax({
 			type: "POST",
-			url: `/api/board/${boardId}/reply`,
+			url: `/api/board/${data.boardId}/reply`,
 			data: JSON.stringify(data), 
 			contentType: "application/json; charset=utf-8", 
 			dataType: "json" 		
 		}).done(function(resp){
 			alert("댓글작성이 완료되었습니다.");
-			location.href = `/board/${boardId}`; // ` ` -> 주소에 자바스크립트 값을 넣을 때 사용
+			location.href = `/board/${data.boardId}`; // ` ` -> 주소에 자바스크립트 값을 넣을 때 사용
 		}).fail(function(error){
 			alert(JSON.stringify(error)); 
 		}); 
