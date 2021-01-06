@@ -19,15 +19,13 @@ springboot 사용방법을 익히기 위해 만든 프로젝트입니다.
 
 - IDE : Spring tool suite 4
 
-- 라이브러리 : JPA, Lombok
+- 프레임워크 : Spring 
 
-- 프레임워크 : 스프링부트, 하이버네이트, 스프링시큐리티
-
-- 서버 : 톰캣
+- 서버 : Apache Tomcat
 
 - DB : MySQL
 
-- API : 카카오API
+- API : KAKAO API
 
 ---------
 - 계획
